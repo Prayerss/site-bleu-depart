@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bleu Départ — Auto-école à Baillargues (34)</title>
+<meta name="description" content="Auto-école Bleu Départ à Baillargues : permis B, conduite accompagnée, permis moto (A1/A2/A), permis remorque BE et code de la route. Moniteurs diplômés d'État, financement CPF." />
+
+<!-- =============================================================
+     BLEU DÉPART — SITE VITRINE
+     Fichier unique. Tout est commenté pour faciliter l'édition.
+     Sections clés à modifier rapidement :
+       • Coordonnées / horaires  → chercher "DATA-CONTACT"
+       • Tarifs                  → chercher "DATA-TARIFS"
+       • Documents nécessaires   → chercher "DATA-DOCS"
+       • Formations              → chercher "DATA-FORMATIONS"
+     ============================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* -------- TOKENS -------- */
+  :root{
+    --bg:        #0a0d14;          /* fond principal, très sombre légèrement bleuté */
+    --bg-2:      #11151f;          /* fond sections alternées */
+    --bg-3:      #181d29;          /* cartes */
+    --line:      #232a3a;          /* bordures discrètes */
+    --ink:       #f4f5f7;          /* texte principal */
+    --ink-dim:   #a4abbd;          /* texte secondaire */
+    --ink-muted: #6b7388;          /* labels, captions */
+    --gold:      #F5C400;          /* couleur de marque */
+    --gold-soft: #ffe169;
+    --gold-deep: #c89f00;
+    --blue:      #5b8cff;          /* petit clin d'œil au nom "Bleu Départ" */
+    --ok:        #5bd1a0;
+    --danger:    #ff6b6b;
+
+    --radius:    18px;
+    --radius-sm: 10px;
+    --shadow:    0 30px 60px -30px rgba(0,0,0,.6), 0 8px 24px -12px rgba(0,0,0,.5);
+
+    --font-display: "Bricolage Grotesque", "Manrope", system-ui, sans-serif;
+    --font-body:    "Manrope", system-ui, sans-serif;
+    --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+    --container: 1240px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .eyebrow .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:10px;vertical-align:middle;box-shadow:0 0 0 4px rgba(245,196,0,.15)}
+
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;margin:0;line-height:1.05;text-wrap:balance}
+  h1{font-size:clamp(40px,6.5vw,84px);letter-spacing:-.035em}
+  h2{font-size:clamp(32px,4.4vw,56px)}
+  h3{font-size:clamp(20px,2vw,26px);letter-spacing:-.02em}
+  p{text-wrap:pretty}
+
+  /* -------- BOUTONS -------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 22px;
+    border-radius:999px;
+    font-weight:600;font-size:15px;
+    transition:transform .15s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--gold);color:#111}
+  .btn-primary:hover{background:var(--gold-soft);transform:translateY(-1px);box-shadow:0 12px 30px -10px rgba(245,196,0,.5)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .btn-dark{background:#000;color:var(--ink);border:1px solid var(--line)}
+  .btn .arrow{transition:transform .2s ease}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  /* -------- NAV -------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(10,13,20,.72);
+    border-bottom:1px solid rgba(255,255,255,.04);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-mark{
+    width:42px;height:42px;border-radius:12px;
+    background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);
+    display:grid;place-items:center;
+    box-shadow:0 6px 20px -6px rgba(245,196,0,.5);
+    position:relative;overflow:hidden;
+  }
+  .brand-mark::after{
+    content:"";position:absolute;inset:auto -10px -14px auto;
+    width:30px;height:30px;border-radius:50%;background:var(--blue);
+    opacity:.85;
+  }
+  .brand-mark span{
+    position:relative;z-index:1;
+    font-family:var(--font-display);font-weight:800;color:#111;font-size:20px;
+  }
+  .brand-name{display:flex;flex-direction:column;line-height:1.1}
+  .brand-name b{font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:-.01em}
+  .brand-name small{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-muted);letter-spacing:.12em;text-transform:uppercase}
+
+  .nav-links{display:flex;gap:6px;align-items:center}
+  .nav-links a{
+    padding:10px 14px;border-radius:999px;font-size:14.5px;font-weight:500;color:var(--ink-dim);
+    transition:color .2s ease, background .2s ease;
+  }
+  .nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.04)}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .nav-tel{font-family:var(--font-mono);font-size:13px;color:var(--ink-dim);padding:10px 14px;border-radius:999px;border:1px solid var(--line)}
+  .nav-tel b{color:var(--ink);font-weight:600}
+
+  .burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);align-items:center;justify-content:center}
+  .burger span{width:18px;height:2px;background:var(--ink);position:relative}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+
+  @media (max-width: 980px){
+    .nav-links,.nav-tel{display:none}
+    .burger{display:flex}
+    .nav-links.open{
+      display:flex;flex-direction:column;align-items:stretch;gap:0;
+      position:absolute;top:78px;left:16px;right:16px;
+      background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:10px;
+    }
+    .nav-links.open a{padding:14px 16px;border-radius:12px}
+  }
+
+  /* -------- HERO -------- */
+  .hero{position:relative;padding:80px 0 110px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:64px;align-items:center}
+  @media (max-width: 980px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero{padding:48px 0 60px}}
+
+  .hero h1 .accent{color:var(--gold);position:relative;display:inline-block}
+  .hero h1 .accent::after{
+    content:"";position:absolute;left:0;right:0;bottom:.05em;height:.12em;
+    background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);
+    opacity:.4;border-radius:4px;
+  }
+  .hero-sub{font-size:clamp(16px,1.5vw,19px);color:var(--ink-dim);max-width:54ch;margin:24px 0 32px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-badges{display:flex;gap:18px;margin-top:36px;flex-wrap:wrap}
+  .badge{
+    display:flex;align-items:center;gap:12px;
+    padding:12px 16px;border-radius:14px;
+    background:var(--bg-3);border:1px solid var(--line);
+  }
+  .badge .ic{width:28px;height:28px;border-radius:8px;background:rgba(245,196,0,.12);display:grid;place-items:center;color:var(--gold)}
+  .badge b{font-size:13px;font-weight:600;display:block;line-height:1.2}
+  .badge small{font-size:11.5px;color:var(--ink-muted);font-family:var(--font-mono);letter-spacing:.05em}
+
+  /* Visuel hero — illustration géométrique, pas un dessin compliqué */
+  .hero-visual{position:relative;aspect-ratio:1/1.05;max-width:520px;justify-self:end;width:100%}
+  .hv-card{
+    position:absolute;border-radius:24px;
+    background:linear-gradient(160deg,#1a2030 0%,#0e1320 100%);
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    padding:22px;
+  }
+  .hv-main{
+    inset:6% 6% 28% 6%;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(91,140,255,.18), transparent 50%),
+      radial-gradient(circle at 80% 90%, rgba(245,196,0,.15), transparent 55%),
+      linear-gradient(160deg,#1a2030 0%, #0e1320 100%);
+    overflow:hidden;
+  }
+  .hv-main .stripe{
+    position:absolute;left:-5%;right:-5%;height:24px;
+    background:repeating-linear-gradient(135deg,var(--gold) 0 18px, transparent 18px 36px);
+    transform:rotate(-8deg);opacity:.18;
+  }
+  .hv-main .stripe.s1{top:30%}
+  .hv-main .stripe.s2{top:60%;opacity:.1}
+  .hv-key{
+    position:absolute;left:24px;top:24px;right:24px;display:flex;justify-content:space-between;align-items:flex-start
+  }
+  .hv-key .k-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;color:var(--ink-muted);text-transform:uppercase}
+  .hv-key .k-val{font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--gold);letter-spacing:.02em}
+  .hv-circle{
+    position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);
+    width:55%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle, rgba(245,196,0,.35), rgba(245,196,0,0) 70%);
+    filter:blur(2px);
+  }
+  .hv-disc{
+    position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);
+    width:38%;aspect-ratio:1;border-radius:50%;
+    background:linear-gradient(135deg,var(--gold) 0%, var(--gold-deep) 100%);
+    box-shadow:0 30px 60px -20px rgba(245,196,0,.5), inset 0 4px 20px rgba(0,0,0,.2);
+    display:grid;place-items:center;
+  }
+  .hv-disc::after{
+    content:"";width:55%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #1a1a1a, #0a0a0a);
+    box-shadow:inset 0 -4px 12px rgba(255,255,255,.05);
+  }
+  .hv-disc::before{
+    content:"";position:absolute;inset:8%;border-radius:50%;
+    border:1px dashed rgba(0,0,0,.25);
+  }
+
+  .hv-stat{
+    position:absolute;
+    background:#fff;color:#111;
+    border-radius:18px;padding:16px 18px;
+    box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:12px;
+    min-width:200px;
+  }
+  .hv-stat .num{font-family:var(--font-display);font-weight:800;font-size:34px;color:#111;line-height:1}
+  .hv-stat .lbl{font-size:12px;color:#555;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em}
+  .hv-s1{right:-4%;top:18%}
+  .hv-s2{left:-4%;bottom:6%;background:#111;color:#fff;border:1px solid var(--line)}
+  .hv-s2 .num{color:var(--gold)}
+  .hv-s2 .lbl{color:var(--ink-dim)}
+
+  /* éléments d'ambiance route */
+  .road-line{
+    position:absolute;pointer-events:none;
+    width:340px;height:340px;border-radius:50%;
+    border:1px dashed rgba(245,196,0,.25);
+    left:-180px;top:-100px;
+  }
+  .road-line.r2{left:auto;right:-200px;top:auto;bottom:-180px;width:520px;height:520px;opacity:.15}
+
+  /* -------- BANDEAU TRUST -------- */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:28px 0}
+  .trust-item{display:flex;align-items:center;gap:14px}
+  .trust-item .ic{width:38px;height:38px;border-radius:10px;background:rgba(245,196,0,.1);color:var(--gold);display:grid;place-items:center;flex-shrink:0}
+  .trust-item b{display:block;font-size:14px;line-height:1.2}
+  .trust-item small{font-size:12px;color:var(--ink-muted);font-family:var(--font-mono)}
+  @media (max-width:780px){.trust-row{grid-template-columns:repeat(2,1fr)}}
+
+  /* -------- SECTIONS -------- */
+  section.block{padding:110px 0;position:relative}
+  section.block.alt{background:var(--bg-2)}
+  .section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:56px;flex-wrap:wrap}
+  .section-head .lead{max-width:480px;color:var(--ink-dim);font-size:17px}
+  .section-head h2{max-width:18ch}
+  .section-head .eyebrow{margin-bottom:14px;display:block}
+
+  /* -------- FORMATIONS -------- */
+  .formations{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media (max-width:1100px){.formations{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.formations{grid-template-columns:1fr}}
+  .f-card{
+    background:var(--bg-3);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:26px;
+    display:flex;flex-direction:column;
+    position:relative;
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+    overflow:hidden;
+  }
+  .f-card:hover{transform:translateY(-4px);border-color:rgba(245,196,0,.4)}
+  .f-card .num{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;color:var(--ink-muted);text-transform:uppercase}
+  .f-card .icon-box{
+    width:66px;height:66px;border-radius:18px;
+    background:linear-gradient(160deg,rgba(245,196,0,.18),rgba(245,196,0,.02));
+    border:1px solid rgba(245,196,0,.25);
+    display:grid;place-items:center;color:var(--gold);
+    margin:22px 0 24px;
+  }
+  .f-card h3{margin-bottom:10px}
+  .f-card .desc{color:var(--ink-dim);font-size:14.5px;margin:0 0 18px;flex:1}
+  .f-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+  .f-card .tag{font-family:var(--font-mono);font-size:11px;padding:5px 9px;border-radius:6px;background:rgba(255,255,255,.04);color:var(--ink-dim);letter-spacing:.04em}
+  .f-card .more{
+    display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-weight:600;font-size:14px;
+    border-top:1px solid var(--line);padding-top:18px;margin-top:auto;
+  }
+  .f-card .more svg{transition:transform .2s ease}
+  .f-card:hover .more svg{transform:translateX(4px)}
+
+  /* -------- POURQUOI NOUS -------- */
+  .why-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:start}
+  @media (max-width:1000px){.why-grid{grid-template-columns:1fr;gap:48px}}
+  .why-list{display:flex;flex-direction:column;gap:4px}
+  .why-item{
+    display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;
+    padding:24px 0;border-top:1px solid var(--line);
+  }
+  .why-item:last-child{border-bottom:1px solid var(--line)}
+  .why-item .ic{width:56px;height:56px;border-radius:14px;background:rgba(245,196,0,.1);color:var(--gold);display:grid;place-items:center}
+  .why-item h3{font-size:20px;margin-bottom:4px}
+  .why-item p{margin:0;font-size:14.5px;color:var(--ink-dim)}
+  .why-item .stat{font-family:var(--font-display);font-weight:800;font-size:28px;color:var(--gold)}
+  .why-side{
+    background:var(--bg-3);border:1px solid var(--line);border-radius:24px;padding:36px;
+    position:sticky;top:120px;
+  }
+  .why-side h3{font-size:24px;margin-bottom:14px}
+  .why-side p{color:var(--ink-dim);font-size:15px;margin:0 0 22px}
+  .why-side .quote{
+    border-left:3px solid var(--gold);padding:8px 0 8px 18px;margin:24px 0;
+    font-style:italic;color:var(--ink);font-size:15px;
+  }
+  .why-side .quote cite{display:block;font-style:normal;color:var(--ink-muted);font-size:12.5px;margin-top:8px;font-family:var(--font-mono);letter-spacing:.05em}
+
+  /* -------- TARIFS -------- */
+  .tarifs-table{
+    background:var(--bg-3);border:1px solid var(--line);border-radius:24px;
+    overflow:hidden;box-shadow:var(--shadow);
+  }
+  .tarif-row{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr auto;gap:24px;align-items:center;
+    padding:24px 32px;border-bottom:1px solid var(--line);
+  }
+  .tarif-row:last-child{border-bottom:none}
+  .tarif-row.head{
+    background:rgba(255,255,255,.02);
+    font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);
+    padding:18px 32px;
+  }
+  .tarif-row .name{display:flex;align-items:center;gap:14px}
+  .tarif-row .name .ic{width:42px;height:42px;border-radius:12px;background:rgba(245,196,0,.1);color:var(--gold);display:grid;place-items:center}
+  .tarif-row .name b{font-family:var(--font-display);font-weight:700;font-size:18px;display:block;line-height:1.2}
+  .tarif-row .name small{font-size:12px;color:var(--ink-muted);font-family:var(--font-mono)}
+  .tarif-row .val{font-family:var(--font-display);font-weight:700;font-size:22px}
+  .tarif-row .val small{font-size:12px;color:var(--ink-muted);font-family:var(--font-mono);font-weight:400;display:block;margin-top:2px;letter-spacing:.04em}
+  .tarif-row .cpf{font-family:var(--font-mono);font-size:11.5px;padding:6px 10px;border-radius:6px;background:rgba(91,209,160,.1);color:var(--ok);justify-self:start}
+  .tarif-row .cpf.no{background:rgba(255,255,255,.04);color:var(--ink-muted)}
+  .tarif-note{
+    display:flex;align-items:center;gap:14px;margin-top:24px;
+    padding:18px 22px;border-radius:14px;border:1px dashed var(--line);
+    color:var(--ink-dim);font-size:14px;
+  }
+  .tarif-note b{color:var(--ink)}
+  @media (max-width:900px){
+    .tarif-row{grid-template-columns:1fr 1fr;padding:18px 20px;gap:14px}
+    .tarif-row.head{display:none}
+    .tarif-row .name{grid-column:1/-1}
+    .tarif-row .val::before{content:attr(data-label) " · ";color:var(--ink-muted);font-family:var(--font-mono);font-size:11px;font-weight:400;display:block;letter-spacing:.1em;text-transform:uppercase}
+    .tarif-row .cpf{grid-column:1/-1;justify-self:start}
+  }
+
+  /* -------- DOCUMENTS (checklist) -------- */
+  .docs-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+  .docs-tabs button{
+    padding:10px 18px;border-radius:999px;border:1px solid var(--line);
+    font-size:14px;font-weight:500;color:var(--ink-dim);
+    transition:all .2s ease;
+  }
+  .docs-tabs button.active{background:var(--gold);color:#111;border-color:var(--gold)}
+  .docs-tabs button:not(.active):hover{color:var(--ink);border-color:rgba(255,255,255,.2)}
+
+  .docs-panel{display:none}
+  .docs-panel.active{display:grid}
+  .docs-panel{grid-template-columns:repeat(2,1fr);gap:14px}
+  @media (max-width:780px){.docs-panel{grid-template-columns:1fr}}
+  .doc-item{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:18px 20px;border-radius:14px;
+    background:var(--bg-3);border:1px solid var(--line);
+    transition:border-color .2s ease;
+  }
+  .doc-item:hover{border-color:rgba(245,196,0,.3)}
+  .doc-check{
+    width:24px;height:24px;border-radius:8px;
+    background:rgba(245,196,0,.12);color:var(--gold);
+    display:grid;place-items:center;flex-shrink:0;margin-top:1px;
+  }
+  .doc-item h4{font-size:15px;font-weight:600;margin:0 0 4px;font-family:var(--font-body);letter-spacing:0}
+  .doc-item p{margin:0;font-size:13px;color:var(--ink-muted)}
+
+  /* -------- CONTACT -------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
+  @media (max-width:980px){.contact-grid{grid-template-columns:1fr;gap:32px}}
+  .contact-info{display:flex;flex-direction:column;gap:18px}
+  .info-card{
+    background:var(--bg-3);border:1px solid var(--line);border-radius:18px;padding:24px;
+    display:flex;gap:16px;
+  }
+  .info-card .ic{width:46px;height:46px;border-radius:12px;background:rgba(245,196,0,.1);color:var(--gold);display:grid;place-items:center;flex-shrink:0}
+  .info-card h4{font-size:13px;color:var(--ink-muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;margin:0 0 6px;font-weight:500}
+  .info-card p{margin:0;font-size:16px;line-height:1.5}
+  .info-card a{color:var(--ink)}
+  .info-card a:hover{color:var(--gold)}
+  .info-card.cta{
+    background:var(--gold);color:#111;border:none;
+    padding:28px;align-items:center;
+  }
+  .info-card.cta .ic{background:rgba(0,0,0,.1);color:#111}
+  .info-card.cta h4{color:rgba(0,0,0,.6)}
+  .info-card.cta b{font-family:var(--font-display);font-size:22px;display:block}
+
+  .contact-form{
+    background:var(--bg-3);border:1px solid var(--line);border-radius:24px;padding:36px;
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  @media (max-width:560px){.form-row{grid-template-columns:1fr}}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .field.row{margin:0}
+  .field label{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted)}
+  .field input,.field select,.field textarea{
+    background:var(--bg-2);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;color:var(--ink);font:inherit;font-size:15px;
+    transition:border-color .2s ease;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+  .field textarea{min-height:120px;resize:vertical}
+  .form-submit{display:flex;gap:12px;align-items:center;margin-top:8px;flex-wrap:wrap}
+  .form-submit small{color:var(--ink-muted);font-size:12px;font-family:var(--font-mono)}
+
+  /* -------- FOOTER -------- */
+  footer.site{background:#06080d;border-top:1px solid var(--line);padding:64px 0 32px;margin-top:0}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+  @media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px}}
+  @media (max-width:560px){.foot-grid{grid-template-columns:1fr}}
+  .foot-brand p{color:var(--ink-dim);font-size:14px;max-width:34ch;margin:16px 0 24px}
+  .foot-social{display:flex;gap:10px}
+  .foot-social a{
+    width:38px;height:38px;border-radius:10px;border:1px solid var(--line);
+    display:grid;place-items:center;color:var(--ink-dim);
+    transition:all .2s ease;
+  }
+  .foot-social a:hover{color:var(--gold);border-color:var(--gold)}
+  .foot-col h5{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin:0 0 18px;font-weight:500}
+  .foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  .foot-col a{color:var(--ink-dim);font-size:14px}
+  .foot-col a:hover{color:var(--gold)}
+  .foot-bottom{
+    display:flex;justify-content:space-between;align-items:center;gap:24px;
+    border-top:1px solid var(--line);padding-top:24px;
+    font-size:12.5px;color:var(--ink-muted);font-family:var(--font-mono);
+    flex-wrap:wrap;
+  }
+
+  /* -------- ANIMATION SCROLL -------- */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* -------- Focus -------- */
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+  /* -------- Sélection -------- */
+  ::selection{background:var(--gold);color:#111}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / NAVIGATION
+     ============================================================ -->
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Bleu Départ - accueil">
+      <div class="brand-mark"><span>B</span></div>
+      <div class="brand-name">
+        <b>Bleu Départ</b>
+        <small>Votre permis, notre priorité</small>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="navlinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#formations">Nos formations</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#documents">Documents</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <!-- DATA-CONTACT : numéro de téléphone affiché en haut -->
+      <span class="nav-tel">☎ <b>04 67 00 00 00</b></span>
+      <a href="#contact" class="btn btn-primary" style="background-color: rgb(245, 128, 2)">Je m'inscris <span class="arrow">→</span></a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<a id="accueil"></a>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="road-line"></div>
+  <div class="road-line r2"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Auto-école à Baillargues · Hérault (34)</span>
+      <h1 style="margin-top:18px">Votre permis de conduire,<br><span class="accent" style="color: rgb(245, 128, 0)">sans détour.</span></h1>
+      <p class="hero-sub">Une pédagogie patiente, des moniteurs diplômés d'État et un suivi personnalisé. À Baillargues et dans toute la métropole de Montpellier, Bleu Départ vous accompagne du code au permis — et au-delà.</p>
+      <div class="hero-cta">
+        <a href="#formations" class="btn btn-primary" style="background-color: rgb(245, 128, 2)">Voir nos formations <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Nous contacter</a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="badge">
+          <span class="ic" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 9.3 8 10 4.6-.7 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <div><b>Agrément qualité</b><small>Label préfectoral</small></div>
+        </div>
+        <div class="badge">
+          <span class="ic" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8 22 7 14m9 8 1-8"/></svg>
+          </span>
+          <div><b>Moniteurs diplômés d'État</b><small>BEPECASER · TP ECSR</small></div>
+        </div>
+        <div class="badge">
+          <span class="ic" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg>
+          </span>
+          <div><b>Financement CPF</b><small>Mon compte formation</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visuel hero — composition géométrique abstraite -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-card hv-main">
+        <div class="hv-key">
+          <div>
+            <div class="k-label">Permis B</div>
+            <div class="k-val">A+</div>
+          </div>
+          <div style="text-align:right">
+            <div class="k-label">Taux réussite</div>
+            <div class="k-val">82%</div>
+          </div>
+        </div>
+        <div class="stripe s1"></div>
+        <div class="stripe s2"></div>
+        <div class="hv-circle"></div>
+        <div class="hv-disc"></div>
+      </div>
+      <div class="hv-stat hv-s1">
+        <div class="num">+20</div>
+        <div class="lbl">Ans<br>d'expérience<br>cumulée</div>
+      </div>
+      <div class="hv-stat hv-s2">
+        <div class="num">1500</div>
+        <div class="lbl">Permis<br>obtenus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BANDEAU DE CONFIANCE
+     ============================================================ -->
+<div class="trust">
+  <div class="wrap trust-row">
+    <div class="trust-item">
+      <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <div><b>Label qualité</b><small>Agrément préfectoral</small></div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/></svg></span>
+      <div><b>Code en ligne 24/7</b><small>Application incluse</small></div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9"/><path d="m8 12 3 3 5-5"/></svg></span>
+      <div><b>Suivi pédagogique</b><small>Personnalisé</small></div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></span>
+      <div><b>Financements</b><small>CPF · Permis 1€/jour</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DATA-FORMATIONS · Modifier ici pour ajouter/retirer un permis
+     ============================================================ -->
+<section class="block" id="formations">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Nos formations</span>
+        <h2>Un parcours adapté à chaque conducteur.</h2>
+      </div>
+      <p class="lead">Du code de la route au permis remorque, en passant par la conduite accompagnée et les deux-roues : nous formons à votre rythme, avec des moniteurs qui connaissent leurs élèves par leur prénom.</p>
+    </div>
+
+    <div class="formations">
+      <!-- Carte 1 — Code -->
+      <article class="f-card reveal">
+        <span class="num">01 — Théorie</span>
+        <div class="icon-box" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h20v12H2z"/><path d="M2 10h20M6 14h4M14 14h4"/></svg>
+        </div>
+        <h3>Code de la route</h3>
+        <p class="desc">En salle avec un moniteur, ou en ligne depuis votre canapé. Accès illimité aux séries officielles et corrigés détaillés.</p>
+        <div class="tags">
+          <span class="tag">En salle</span>
+          <span class="tag">En ligne 24/7</span>
+          <span class="tag">App mobile</span>
+        </div>
+        <a href="#contact" class="more">En savoir plus
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <!-- Carte 2 — Permis B -->
+      <article class="f-card reveal">
+        <span class="num">02 — Voiture</span>
+        <div class="icon-box" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14h14l-1.5-5h-11L5 14Z"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/><path d="M3 14v3h2m14 0h2v-3"/></svg>
+        </div>
+        <h3>Permis B (voiture)</h3>
+        <p class="desc">Formule classique, conduite accompagnée (AAC) ou supervisée. Boîte manuelle et boîte automatique disponibles.</p>
+        <div class="tags">
+          <span class="tag">Dès 17 ans</span>
+          <span class="tag">AAC</span>
+          <span class="tag">Boîte auto</span>
+        </div>
+        <a href="#contact" class="more">En savoir plus
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <!-- Carte 3 — Moto -->
+      <article class="f-card reveal">
+        <span class="num">03 — Deux-roues</span>
+        <div class="icon-box" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17h6l3-6h3M11 11h5l-2-3h-3"/></svg>
+        </div>
+        <h3>Permis 2 roues</h3>
+        <p class="desc">A1 (125 cm³), A2 (35 kW) et A (toutes cylindrées). Plateau, circulation et code spécifique moto.</p>
+        <div class="tags">
+          <span class="tag">A1</span>
+          <span class="tag">A2</span>
+          <span class="tag">A</span>
+        </div>
+        <a href="#contact" class="more">En savoir plus
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <!-- Carte 4 — Remorque BE -->
+      <article class="f-card reveal">
+        <span class="num">04 — Remorque</span>
+        <div class="icon-box" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="9" height="6" rx="1"/><rect x="13" y="7" width="8" height="8" rx="1"/><circle cx="7" cy="17" r="1.5"/><circle cx="17" cy="17" r="1.5"/><path d="M3 15h18"/></svg>
+        </div>
+        <h3>Permis remorque BE</h3>
+        <p class="desc">Pour tracter caravane, van ou plateau au-delà du PTAC autorisé par le permis B. Formation courte, théorie + pratique.</p>
+        <div class="tags">
+          <span class="tag">B96</span>
+          <span class="tag">BE</span>
+          <span class="tag">7h ou 21h</span>
+        </div>
+        <a href="#contact" class="more">En savoir plus
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     POURQUOI NOUS CHOISIR
+     ============================================================ -->
+<section class="block alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Pourquoi Bleu Départ</span>
+        <h2>Une auto-école qui prend le temps.</h2>
+      </div>
+      <p class="lead">Le permis n'est pas une formalité administrative. C'est un savoir-faire qui vous accompagnera des décennies. Notre méthode : patience, transparence, exigence.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-list reveal">
+        <div class="why-item">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c1-4 4-6 7-6s6 2 7 6"/></svg></span>
+          <div>
+            <h3>Moniteurs expérimentés</h3>
+            <p>Tous diplômés d'État (BEPECASER ou TP ECSR), formés en continu aux dernières évolutions du code et de la pédagogie.</p>
+          </div>
+          <span class="stat">15+</span>
+        </div>
+        <div class="why-item">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <div>
+            <h3>Taux de réussite élevé</h3>
+            <p>82% de réussite au permis B en première présentation sur la dernière année. Au-dessus de la moyenne départementale.</p>
+          </div>
+          <span class="stat">82%</span>
+        </div>
+        <div class="why-item">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v6H3zM3 13h18v6H3z"/><path d="M7 9h2M7 17h2"/></svg></span>
+          <div>
+            <h3>Suivi personnalisé</h3>
+            <p>Livret pédagogique numérique, bilans réguliers et plan de progression. Vous savez toujours où vous en êtes.</p>
+          </div>
+          <span class="stat">1:1</span>
+        </div>
+        <div class="why-item">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h2"/></svg></span>
+          <div>
+            <h3>Financements multiples</h3>
+            <p>CPF (Mon compte formation), Permis à 1€/jour, paiement échelonné sans frais. On trouve une solution.</p>
+          </div>
+          <span class="stat">CPF</span>
+        </div>
+      </div>
+
+      <aside class="why-side reveal">
+        <span class="eyebrow"><span class="dot"></span>Témoignage</span>
+        <h3 style="margin-top:14px">"Ils m'ont remis en selle après deux échecs ailleurs."</h3>
+        <p>Vous avez essayé une autre auto-école sans succès ? Nous reprenons votre dossier, faisons un bilan, et reconstruisons un parcours adapté à vos points faibles.</p>
+        <div class="quote">
+          « Après deux échecs au permis, je pensais abandonner. Chez Bleu Départ, on a repris à zéro sans me presser. Permis obtenu du premier coup trois mois plus tard. »
+          <cite>— Camille R., Vendargues</cite>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center">Demander un bilan gratuit <span class="arrow">→</span></a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DATA-TARIFS · Modifier les prix ici
+     ============================================================ -->
+<section class="block" id="tarifs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Nos tarifs</span>
+        <h2>Des prix clairs, pas de surprises.</h2>
+      </div>
+      <p class="lead">Tous nos forfaits incluent les frais de dossier, l'inscription au fichier national (NEPH), l'accès illimité au code en ligne et l'accompagnement à l'examen.</p>
+    </div>
+
+    <div class="tarifs-table reveal">
+      <div class="tarif-row head">
+        <div>Formation</div>
+        <div>Forfait initial</div>
+        <div>Heure suppl.</div>
+        <div>Présentation examen</div>
+        <div>CPF</div>
+      </div>
+
+      <!-- Ligne 1 -->
+      <div class="tarif-row">
+        <div class="name">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg></span>
+          <div><b>Code de la route</b><small>Accès 6 mois</small></div>
+        </div>
+        <div class="val" data-label="Forfait">190 €<small>tout inclus</small></div>
+        <div class="val" data-label="Heure suppl.">—<small>illimité</small></div>
+        <div class="val" data-label="Examen">30 €<small>par passage</small></div>
+        <div><span class="cpf">CPF éligible</span></div>
+      </div>
+
+      <!-- Ligne 2 -->
+      <div class="tarif-row">
+        <div class="name">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14h14l-1.5-5h-11L5 14Z"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg></span>
+          <div><b>Permis B — 20h</b><small>Forfait initial</small></div>
+        </div>
+        <div class="val" data-label="Forfait">1 290 €<small>code + 20h conduite</small></div>
+        <div class="val" data-label="Heure suppl.">49 €<small>par heure</small></div>
+        <div class="val" data-label="Examen">70 €<small>par passage</small></div>
+        <div><span class="cpf">CPF éligible</span></div>
+      </div>
+
+      <!-- Ligne 3 -->
+      <div class="tarif-row">
+        <div class="name">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14h14l-1.5-5h-11L5 14Z"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/><path d="M9 9V6h6v3"/></svg></span>
+          <div><b>Permis B — AAC</b><small>Conduite accompagnée</small></div>
+        </div>
+        <div class="val" data-label="Forfait">1 490 €<small>20h + rendez-vous parents</small></div>
+        <div class="val" data-label="Heure suppl.">49 €<small>par heure</small></div>
+        <div class="val" data-label="Examen">70 €<small>par passage</small></div>
+        <div><span class="cpf">CPF éligible</span></div>
+      </div>
+
+      <!-- Ligne 4 -->
+      <div class="tarif-row">
+        <div class="name">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17h6l3-6h3"/></svg></span>
+          <div><b>Permis A2 (moto)</b><small>Plateau + circulation</small></div>
+        </div>
+        <div class="val" data-label="Forfait">1 190 €<small>20h plateau + route</small></div>
+        <div class="val" data-label="Heure suppl.">55 €<small>par heure</small></div>
+        <div class="val" data-label="Examen">80 €<small>plateau + circulation</small></div>
+        <div><span class="cpf">CPF éligible</span></div>
+      </div>
+
+      <!-- Ligne 5 -->
+      <div class="tarif-row">
+        <div class="name">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="9" height="6" rx="1"/><rect x="13" y="7" width="8" height="8" rx="1"/></svg></span>
+          <div><b>Permis remorque BE</b><small>Formation 12h</small></div>
+        </div>
+        <div class="val" data-label="Forfait">790 €<small>tout compris</small></div>
+        <div class="val" data-label="Heure suppl.">55 €<small>par heure</small></div>
+        <div class="val" data-label="Examen">60 €<small>par passage</small></div>
+        <div><span class="cpf no">Non éligible</span></div>
+      </div>
+    </div>
+
+    <div class="tarif-note">
+      <span style="color:var(--gold);font-size:20px">★</span>
+      <div><b>Devis personnalisé sur demande.</b> Selon votre profil (déjà inscrit ailleurs, échec antérieur, conduite à l'étranger), nous adaptons le forfait. Pas de surcoût caché.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DATA-DOCS · Documents nécessaires (3 onglets)
+     ============================================================ -->
+<section class="block alt" id="documents">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Inscription</span>
+        <h2>Les documents à préparer.</h2>
+      </div>
+      <p class="lead">Liste officielle requise par la préfecture. Notre équipe vous aide à monter le dossier, étape par étape. On vous prévient si quelque chose manque.</p>
+    </div>
+
+    <div class="docs-tabs reveal" role="tablist">
+      <button class="active" data-tab="b" role="tab">Permis B (voiture)</button>
+      <button data-tab="moto" role="tab">Permis moto (A1/A2/A)</button>
+      <button data-tab="be" role="tab">Permis remorque BE</button>
+    </div>
+
+    <!-- Permis B -->
+    <div class="docs-panel active" data-panel="b">
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Pièce d'identité</h4><p>CNI ou passeport en cours de validité, recto-verso.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Justificatif de domicile</h4><p>Facture (eau, électricité, internet) de moins de 6 mois. Si hébergé : attestation + pièce d'identité de l'hébergeant.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Photo d'identité</h4><p>Une photo récente, conforme aux normes ANTS (e-photo).</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>ASSR 2 ou ASR</h4><p>Attestation Scolaire de Sécurité Routière (niveau collège) ou ASR si vous n'êtes plus scolarisé.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Numéro NEPH (si déjà inscrit)</h4><p>Numéro de dossier de votre précédente auto-école, pour reprendre votre formation sans repartir de zéro.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Certificat JDC (si 17-25 ans)</h4><p>Attestation de Journée Défense et Citoyenneté, ou attestation de recensement pour les moins de 18 ans.</p></div>
+      </div>
+    </div>
+
+    <!-- Permis moto -->
+    <div class="docs-panel" data-panel="moto">
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Pièce d'identité</h4><p>CNI ou passeport en cours de validité.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Justificatif de domicile</h4><p>De moins de 6 mois.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Photo d'identité ANTS</h4><p>Format e-photo numérique.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>ASSR 2 ou ASR</h4><p>Obligatoire pour A1 (16 ans) et tout permis moto.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Permis B (pour passerelle A2 → A)</h4><p>Copie du permis B si vous demandez la passerelle au bout de 2 ans de A2.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Équipement obligatoire</h4><p>Casque homologué, gants CE, blouson, pantalon couvrant, bottes : peuvent être fournis pendant la formation.</p></div>
+      </div>
+    </div>
+
+    <!-- Permis remorque -->
+    <div class="docs-panel" data-panel="be">
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Permis B en cours de validité</h4><p>Indispensable pour s'inscrire au permis BE ou à la formation B96.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Pièce d'identité</h4><p>CNI ou passeport.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Justificatif de domicile</h4><p>De moins de 6 mois.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Photo d'identité ANTS</h4><p>Format e-photo.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Visite médicale (selon catégorie)</h4><p>Pour certains usages professionnels ou si vous avez plus de 76 ans.</p></div>
+      </div>
+      <div class="doc-item reveal">
+        <span class="doc-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-11"/></svg></span>
+        <div><h4>Numéro NEPH</h4><p>Si vous êtes déjà titulaire d'un permis (votre numéro est sur votre permis actuel).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Nous contacter</span>
+        <h2>Passez nous voir, ou écrivez-nous.</h2>
+      </div>
+      <p class="lead">L'inscription se fait en agence, sur rendez-vous ou en passant directement. Le premier échange est toujours gratuit — on vous explique le parcours sans engagement.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- DATA-CONTACT : adresse, horaires, téléphone, email -->
+      <div class="contact-info reveal">
+        <div class="info-card">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div>
+            <h4>Adresse</h4>
+            <p>12 avenue de la Gare<br>34670 Baillargues<br><small style="color:var(--ink-muted)">À 10 min de Montpellier centre</small></p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg></span>
+          <div>
+            <h4>Horaires</h4>
+            <p>
+              Lun – Ven : 9h – 12h · 14h – 19h<br>
+              Samedi : 9h – 13h<br>
+              Dimanche : fermé
+            </p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-3 2c1 3 3 5 6 6l2-3 5 2v4a2 2 0 0 1-2 2c-9 0-15-6-15-15a2 2 0 0 1 2-2Z"/></svg></span>
+          <div>
+            <h4>Téléphone & email</h4>
+            <p>
+              <a href="tel:0467000000">04 67 00 00 00</a><br>
+              <a href="mailto:contact@bleudepart.fr">contact@bleudepart.fr</a>
+            </p>
+          </div>
+        </div>
+        <a href="tel:0467000000" class="info-card cta">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-3 2c1 3 3 5 6 6l2-3 5 2v4a2 2 0 0 1-2 2c-9 0-15-6-15-15a2 2 0 0 1 2-2Z"/></svg></span>
+          <div>
+            <h4>Appel direct</h4>
+            <b>04 67 00 00 00</b>
+          </div>
+        </a>
+      </div>
+
+      <form class="contact-form reveal" onsubmit="event.preventDefault(); submitForm(this);">
+        <div class="form-row">
+          <div class="field row">
+            <label for="f-name">Nom complet</label>
+            <input id="f-name" name="name" type="text" required placeholder="Marie Dupont">
+          </div>
+          <div class="field row">
+            <label for="f-tel">Téléphone</label>
+            <input id="f-tel" name="tel" type="tel" required placeholder="06 12 34 56 78">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required placeholder="marie.dupont@email.fr">
+        </div>
+        <div class="field">
+          <label for="f-formation">Formation souhaitée</label>
+          <select id="f-formation" name="formation" required>
+            <option value="">— Choisissez une formation —</option>
+            <option>Code de la route</option>
+            <option>Permis B — Formule classique</option>
+            <option>Permis B — Conduite accompagnée (AAC)</option>
+            <option>Permis A1 / A2 / A (moto)</option>
+            <option>Permis BE (remorque)</option>
+            <option>Je ne sais pas encore — conseillez-moi</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" placeholder="Quelques mots sur votre projet, vos disponibilités, ou vos questions..."></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">Envoyer ma demande <span class="arrow">→</span></button>
+          <small>Réponse sous 24h ouvrées</small>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <div class="brand-mark"><span>B</span></div>
+          <div class="brand-name">
+            <b>Bleu Départ</b>
+            <small>Votre permis, notre priorité</small>
+          </div>
+        </div>
+        <p>Auto-école agréée à Baillargues, au service des conducteurs de la métropole de Montpellier depuis sa création.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.4-2 2-2h2V2h-3c-3 0-4.5 1.8-4.5 4.5V10H6v4h3.5v8H13Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Google"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4.5 6v6c0 5 3 9 7.5 10 4.5-1 7.5-5 7.5-10V6L12 2Zm0 6 1.4 3 3.1.4-2.3 2.1.6 3-2.8-1.6L9.2 16.6l.6-3-2.3-2.1L10.6 11 12 8Z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Formations</h5>
+        <ul>
+          <li><a href="#formations">Code de la route</a></li>
+          <li><a href="#formations">Permis B</a></li>
+          <li><a href="#formations">Conduite accompagnée</a></li>
+          <li><a href="#formations">Permis moto</a></li>
+          <li><a href="#formations">Permis BE</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Auto-école</h5>
+        <ul>
+          <li><a href="#tarifs">Tarifs</a></li>
+          <li><a href="#documents">Documents</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Financement CPF</a></li>
+          <li><a href="#">Avis clients</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Légal</h5>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">CGV</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">N° d'agrément · E XX XXX XXXX X</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Bleu Départ — Auto-école à Baillargues (34)</span>
+      <span>Site conçu avec ♥ pour les nouveaux conducteurs</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // -------- Année dynamique footer --------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // -------- Menu burger mobile --------
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  if (burger) {
+    burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+  }
+
+  // -------- Onglets Documents --------
+  document.querySelectorAll('.docs-tabs button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      document.querySelectorAll('.docs-tabs button').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.docs-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === target));
+    });
+  });
+
+  // -------- Animations au scroll (IntersectionObserver) --------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // -------- Soumission formulaire (démo, à brancher sur un service mail) --------
+  function submitForm(form) {
+    const btn = form.querySelector('button[type=submit]');
+    const original = btn.innerHTML;
+    btn.innerHTML = 'Envoi en cours…';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '✓ Merci, on vous rappelle vite !';
+      btn.style.background = '#5bd1a0';
+      form.reset();
+      setTimeout(() => { btn.innerHTML = original; btn.disabled = false; btn.style.background = ''; }, 3000);
+    }, 800);
+  }
+</script>
+</body>
+</html>
